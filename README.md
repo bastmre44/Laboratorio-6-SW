@@ -1,4 +1,4 @@
-# Laboratorio-5-SW
+# Laboratorio-6-SW
 
 ## Registro de Errores 
 
@@ -55,3 +55,41 @@ lo cual no es correcto según el estándar HTTP.
 
 Solución:
 Se cambió el código de respuesta a 404 y se agregó la ruta solicitada en el mensaje.
+
+
+## Parte 2: Cambios realizados
+
+### Cambio 1: Modificación de la ruta /info
+
+Se modificó la ruta /info para que devuelva un objeto JSON en lugar de texto plano.
+
+El JSON incluye las propiedades:
+- mensaje
+- curso
+- tecnologia
+
+![Info](./files/info.png)
+
+
+### Cambio 2: Creación de la ruta /saludo
+
+Se agregó una nueva ruta /saludo que responde con un mensaje en texto plano.
+
+![Saludo](./files/saludo.png)
+
+
+### Cambio 3: Creación de la ruta /api/status
+
+Se creó la ruta /api/status que devuelve un JSON con información del estado del servidor.
+
+Incluye:
+- ok
+- status
+- puerto
+
+![Status](./files/statuspng.png)
+
+
+### Cambio 4: Mejora en respuesta 404
+
+Se modificó la respuesta para rutas no encontradas, mostrando la URL solicitada por el usuario.
