@@ -27,10 +27,16 @@ const server = http.createServer(async (req, res) => {
   res.end(JSON.stringify(data))
   return
 }
- 
-  if (req.url === "/api/student") {
-    const filePath = path.join(process.cwd(), "files", "datos.json")
-    const texto = await fs.readFile(filePath, "utf-8")
+
+if (req.url === "/saludo") {
+  res.writeHead(200, { "Content-Type": "text/plain" })
+  res.end("¡Hola, Este es el servidor")
+  return
+}
+
+if (req.url === "/api/student") {
+  const filePath = path.join(process.cwd(), "files", "datos.json")
+  const texto = await fs.readFile(filePath, "utf-8")
 
     res.writeHead(200, { "Content-Type": "application/json" })
     res.end(texto)
