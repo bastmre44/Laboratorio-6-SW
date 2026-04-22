@@ -26,7 +26,7 @@ Content-Type: application/json
 Con esto el cliente puede interpretar correctamente la respuesta.
 
 
-## Error 4: Manejo incorrecto de JSON en /api/student
+## Error 3: Manejo incorrecto de JSON en /api/student
 
 Se utilizaba JSON.stringify sobre el resultado de fs.readFile sin await,
 lo que generaba una respuesta incorrecta.
@@ -38,7 +38,7 @@ Se agregó await para obtener el contenido real del archivo y se utilizó JSON.p
 para convertirlo a objeto antes de enviarlo como JSON válido.
 
 
-### Error: Archivo datos.json inexistente
+##  Error 4: Archivo datos.json inexistente
 
 Al realizar la prueba de la ruta /api/student en Postman, el servidor se detenía y mostraba un error ENOENT.
 
@@ -46,3 +46,12 @@ Esto ocurría porque el código intentaba leer un archivo llamado datos.json que
 
 Solución:
 Se creó el archivo datos.json en el directorio correspondiente y se aseguró que la ruta utilizada en el código coincidiera con su ubicación.
+
+
+## Error 5: Código HTTP incorrecto en rutas no encontradas
+
+El servidor respondía con código 200 en rutas inexistentes,
+lo cual no es correcto según el estándar HTTP.
+
+Solución:
+Se cambió el código de respuesta a 404 y se agregó la ruta solicitada en el mensaje.
